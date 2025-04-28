@@ -1,0 +1,61 @@
+---
+# Default values
+title: Callout
+heading: Help organize the 11ty Meetup!
+description: A callout component to highlight important information.
+links:
+  - linkUrl: #
+    linkText: Join the 11ty Meetup!
+  - linkUrl: #
+    linkText: Learn more about 11ty Meetup!
+background: light
+
+#CMS Fields
+fields:
+  - name: heading
+    label: Heading
+    widget: string
+  - name: description
+    label: Description
+    widget: markdown
+  - name: links
+    label: Links
+    widget: list
+    listItemLabel: Link
+    fields:
+      - name: linkUrl
+        label: Link URL
+        widget: string
+      - name: linkText
+        label: Link Text
+        widget: string
+  - name: background
+    label: Background Color
+    widget: select
+    options:
+      - { label: "Light", value: "light" }
+      - { label: "Dark", value: "dark" }
+      - { label: "Primary", value: "primary" }
+      - { label: "Secondary", value: "secondary" }
+---
+
+<section class="block block-callout bg-{{ background }} text-bg-{{ background }} py-5">
+  <article class="container text-center">
+    <header>
+      <h2>{{ heading }}</h2>
+    </header>
+    {{ description | safe }}
+    <footer class="mt-4">
+      <nav class="nav justify-content-center">
+      {% for link in links %}
+        <a
+          href="{{ link.linkUrl }}"
+          class="btn {{ 'btn-primary' if loop.first else 'btn-link' }}"
+        >
+          {{ link.linkText }}
+        </a>
+      {% endfor %}
+      </nav>
+    </footer>
+  </article>
+</section>

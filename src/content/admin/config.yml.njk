@@ -1,0 +1,83 @@
+---
+eleventyExcludeFromCollections: true
+permalink: "/admin/config.yml"
+---
+backend:
+  name: github
+  branch: cms
+  repo: "mwdelaney/11ty-meetup-project"
+media_folder: "src/assets/images"
+public_folder: "/assets/images"
+collections:
+  - name: "pages"
+    label: "Pages"
+    editor:
+      preview: false
+    folder: "src/content/pages"
+    create: true
+    extension: "njk"
+    format: "frontmatter"
+    meta: { path: { widget: string, label: 'Path', index_file: 'index' } }
+    nested:
+      depth: 100 # max depth to show in the collection tree
+      summary: '{{ "{{title}}" }}' # optional summary for a tree node, defaults to the inferred title field
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Permalink Override (Default: '/your-title/')", name: "permalink", widget: "string", required: false }
+      - label: "Components"
+        name: "components"
+        widget: "list"
+        types:
+          {% for component in collections.components %}
+          {%- if component.data.fields %}
+          - label: "{{ component.data.title }}"
+            name: "{{ component.data.title | slugify }}"
+            widget: object
+            summary: "{{ '{{fields.heading}}' }}"
+            fields:
+              {{ component.data.fields | dump | safe }}
+          {%- endif -%}
+          {%- endfor %}
+
+  - name: "settings"
+    label: "Settings"
+    editor:
+      preview: false
+    files:
+      - label: "Global Settings"
+        name: "site"
+        file: "src/data/site.json"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Description", name: "description", widget: "text" }
+          - { label: "Author", name: "author", widget: "string" }
+      - label: "Navigation"
+        name: "nav"
+        file: "src/data/navigation.json"
+        fields:
+          - label: "Items"
+            name: "items"
+            widget: "list"
+            fields:
+              - label: "Text"
+                name: "text"
+                widget: "string"
+              - label: "URL"
+                name: "url"
+                widget: "string"
+              - label: "External"
+                name: "external"
+                widget: "boolean"
+              - label: "Sub Items"
+                name: "subitems"
+                widget: "list"
+                fields:
+                  - label: "Text"
+                    name: "text"
+                    widget: "string"
+                  - label: "URL"
+                    name: "url"
+                    widget: "string"
+                  - label: "External"
+                    name: "external"
+                    widget: "boolean"

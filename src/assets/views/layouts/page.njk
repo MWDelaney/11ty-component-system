@@ -1,0 +1,12 @@
+---
+layout: base.njk
+---
+<header class="container mb-5" id="page-header">
+  <h1>
+    {{ title | safe }}
+  </h1>
+</header>
+
+{% include "partials/components.njk" %}
+
+{{ content | safe }}

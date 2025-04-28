@@ -1,0 +1,24 @@
+{
+  "items": [
+    {
+      "text": "Home",
+      "url": "/",
+      "external": false
+    },
+    {
+      "text": "Stylesheet",
+      "url": "/stylesheet/",
+      "external": false
+    },
+    {
+      "text": "Example",
+      "url": "/example/",
+      "external": false
+    },
+    {
+      "text": "Admin",
+      "url": "/admin/",
+      "external": false
+    }
+  ]
+}

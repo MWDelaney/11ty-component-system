@@ -1,0 +1,65 @@
+---
+# Default values
+title: Text and Image
+heading: Text and image component
+description: A component that combines text and an image.
+image: /assets/images/possums.jpg
+imageAlt: A cute possum
+imagePosition: left
+background: warning
+
+# CMS Fields
+fields:
+  - name: heading
+    label: Heading
+    widget: string
+  - name: description
+    label: Description
+    widget: markdown
+  - name: image
+    label: Image
+    widget: image
+  - name: imageAlt
+    label: Image Alt Text
+    widget: string
+  - name: background
+    label: Background Color
+    widget: select
+    options:
+      - { label: "Light", value: "light" }
+      - { label: "Dark", value: "dark" }
+      - { label: "Primary", value: "primary" }
+      - { label: "Secondary", value: "secondary" }
+      - { label: "Success", value: "success" }
+      - { label: "Danger", value: "danger" }
+      - { label: "Warning", value: "warning" }
+      - { label: "Info", value: "info" }
+---
+
+<section class="block block-text-and-image background-{{ background }} text-bg-{{ background }} py-5">
+  <div class="container px-5">
+    <div class="row row-cols-2 align-items-center">
+      <article class="col">
+        <h2>{{ heading }}</h2>
+        {{ description | safe }}
+      </article>
+      <figure class="col">
+        <img src="{{ image }}" class="img-fluid rounded shadow" alt="{{ imageAlt }}" />
+      </figure>
+    </div>
+  </div>
+</section>
+
+{% css %}
+.block-text-and-image {
+  figure img {
+    --bs-border-radius: 1rem;
+
+    transform: rotate(6deg);
+  }
+}
+{% endcss %}
+
+{% js %}
+console.log("Hello from the {{ heading }} component!");
+{% endjs %}

@@ -1,0 +1,5 @@
+{
+  "layout": "base",
+  "permalink": "/stylesheet/{{ title | slugify }}/",
+  "sitemapIgnore": true
+}
