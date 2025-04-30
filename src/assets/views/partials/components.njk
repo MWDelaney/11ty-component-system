@@ -5,7 +5,7 @@
         {# append the component's nunjucks-formatted content or rawInput to the item object #}
         {% set updatedItem = item | merge({ templateContent: component.rawInput }) %}
         {# Render the component with the updated item data #}
-          {{- updatedItem.templateContent | renderContent("njk", updatedItem) | safe -}}
+        {{- updatedItem.templateContent | renderContent("njk", updatedItem) | safe -}}
     {%- endif -%}
   {%- endfor -%}
 {%- endfor -%}

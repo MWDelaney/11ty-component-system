@@ -1,5 +1,7 @@
 {
   "title": "Component-based CMS generator",
   "description": "Whaaat?",
-  "author": "MWDelaney"
+  "author": "MWDelaney",
+  "github_repo": "MWDelaney/11ty-meetup-components-project",
+  "github_branch": "main"
 }

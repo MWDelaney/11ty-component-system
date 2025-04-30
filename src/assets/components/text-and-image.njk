@@ -35,7 +35,7 @@ fields:
       - { label: "Warning", value: "warning" }
       - { label: "Info", value: "info" }
 ---
-
+{# Component HTML, using the default values above #}
 <section class="block block-text-and-image background-{{ background }} text-bg-{{ background }} py-5">
   <div class="container px-5">
     <div class="row row-cols-2 align-items-center">
@@ -50,6 +50,7 @@ fields:
   </div>
 </section>
 
+{# Optional component CSS #}
 {% css %}
 .block-text-and-image {
   figure img {
@@ -60,6 +61,7 @@ fields:
 }
 {% endcss %}
 
+{# Optional component JS #}
 {% js %}
 console.log("Hello from the {{ heading }} component!");
 {% endjs %}

@@ -4,8 +4,9 @@
 */
 
 import metagenPlugin from 'eleventy-plugin-metagen';
-import { EleventyRenderPlugin } from "@11ty/eleventy";
 import { eleventyImageTransformPlugin } from "@11ty/eleventy-img";
+import { EleventyRenderPlugin } from "@11ty/eleventy";
+import componentSystem from '../../eleventy-universal-components.js';
 
 export default {
   /**
@@ -21,23 +22,10 @@ export default {
    * Eleventy Render plugin
    * https://www.11ty.dev/docs/plugins/render/
    */
-  render: async function (eleventyConfig) {
-    // Add plugin to eleventyConfig
-    eleventyConfig.addPlugin(EleventyRenderPlugin);
-  },
-
-  /**
-   * Eleventy Bundle config
-   */
-  bundle: async function (eleventyConfig) {
-      eleventyConfig.addBundle("css", {
-        toFileDirectory: "./assets/styles/",
-      });
-
-      eleventyConfig.addBundle("js", {
-        toFileDirectory: "./assets/scripts/",
-      });
-  },
+    render: async function (eleventyConfig) {
+      // Add plugin to eleventyConfig
+      eleventyConfig.addPlugin(EleventyRenderPlugin);
+    },
 
   /**
    * Eleventy Image Transform plugin
@@ -56,5 +44,13 @@ export default {
         pictureAttributes: {}
       },
     });
+  },
+
+  /**
+   * Component system plugin
+   */
+  componentSystem: async function (eleventyConfig) {
+    // Add plugin to eleventyConfig
+    eleventyConfig.addPlugin(componentSystem);
   }
 }

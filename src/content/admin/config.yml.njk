@@ -4,8 +4,8 @@ permalink: "/admin/config.yml"
 ---
 backend:
   name: github
-  branch: cms
-  repo: "mwdelaney/11ty-meetup-project"
+  branch: "{{ site.github_branch }}"
+  repo: "{{ site.github_repo }}"
 media_folder: "src/assets/images"
 public_folder: "/assets/images"
 collections:

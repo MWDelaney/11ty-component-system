@@ -69,7 +69,6 @@ import chalk from 'chalk';
  * https://www.11ty.dev/docs/config/
  */
 export default function(eleventyConfig) {
-
   // An array of the tasks to be run, in order, with an icon and a pretty name for each
   // Put the tasks in the order you want them to run, and set echo to false if you don't want to log the task to the console
   let tasks = [

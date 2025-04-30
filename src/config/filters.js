@@ -18,11 +18,4 @@ export default {
       return markdownLib.render(value);
     });
   },
-
-  // Merge filter to combine two objects
-  merge: async function (eleventyConfig) {
-    eleventyConfig.addFilter("merge", function (a, b) {
-      return { ...a, ...b };
-    });
-  },
 }
