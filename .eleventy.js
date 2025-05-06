@@ -30,11 +30,6 @@ import collections from './src/config/collections.js';
 import watchtargets from './src/config/watchtargets.js';
 
 /**
- * Plugins are defined as named exports in /src/config/plugins.js
- */
-import plugins from './src/config/plugins.js';
-
-/**
  * Shortcodes are defined as named exports in /src/config/shortcodes.js
  */
 import shortcodes from './src/config/shortcodes.js';
@@ -60,6 +55,11 @@ import build from './src/config/build.js';
 import transforms from './src/config/transforms.js';
 
 /**
+ * Plugins are defined as named exports in /src/config/plugins.js
+ */
+import plugins from './src/config/plugins.js';
+
+/**
  * Any additional requirements can be added here
  */
 import chalk from 'chalk';
@@ -76,12 +76,6 @@ export default function(eleventyConfig) {
       icon: "📚",
       name: "Collections",
       config: collections,
-      echo: true,
-    },
-    {
-      icon: "🔌",
-      name: "Plugins",
-      config: plugins,
       echo: true,
     },
     {
@@ -119,7 +113,13 @@ export default function(eleventyConfig) {
       name: "Watch Targets",
       config: watchtargets,
       echo: false,
-    }
+    },
+    {
+      icon: "🔌",
+      name: "Plugins",
+      config: plugins,
+      echo: true,
+    },
   ];
 
   /**

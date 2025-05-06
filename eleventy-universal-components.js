@@ -74,5 +74,4 @@ export default function(eleventyConfig) {
   eleventyConfig.addBundle("js", {
     toFileDirectory: "./assets/scripts/",
   });
-
 }

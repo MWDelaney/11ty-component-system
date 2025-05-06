@@ -1,8 +1,10 @@
+{# Loop through the components array #}
 {%- for item in components -%}
   {# Find the component in the collections #}
   {% for component in collections.components -%}
+    {# Check if the component's title matches the item's type #}
     {%- if component.data.title | slugify == item.type | slugify -%}
-        {# append the component's nunjucks-formatted content or rawInput to the item object #}
+        {# Append the component's nunjucks-formatted content (rawInput) to the item object #}
         {% set updatedItem = item | merge({ templateContent: component.rawInput }) %}
         {# Render the component with the updated item data #}
         {{- updatedItem.templateContent | renderContent("njk", updatedItem) | safe -}}
