@@ -1,6 +1,6 @@
 # Eleventy Component System
 
-Build resuable components for Eleventy sites. Data model, and markup all in one file.
+Build resuable single-file components for Eleventy sites. Data model and markup all in one file, styles and javascript too!
 
 This is an example of a simple Eleventy component system. It is designed to be a starting point for building reusable components in Eleventy. It's not intended to be a complete solution, but rather an example to help you get started.
 
@@ -56,15 +56,9 @@ The [components.njk partial](https://github.com/MWDelaney/11ty-component-system/
 
 Optionally [generate a DecapCMS configuration file](https://github.com/MWDelaney/11ty-component-system/blob/main/src/content/admin/config.yml.njk) and start building pages with components right away!
 
-## Why use the Eleventy Component System?
+## How to use
 
-* Rapidly create reusable components: data model, template, and styles all in one file.
-* Autmatically generate a [git-based content management system](https://decapcms.org) for your components.
-* Start building pages with components right away!
-
-## Who is this for?
-
-### WordPress developers
-
-* You don't need 90% of WordPress's features, but you do need a way to create and manage content with reusable components.
-* Hosting and databases are expensive; most of your content is static and doesn't need to be stored in a database.
+1. Download or copy the contents of [eleventy-component-system.js](https://github.com/MWDelaney/11ty-component-system/blob/main/eleventy-universal-components.js) and include it in your Eleventy config file. Update paths in the script to match your project structure. 
+2. Download [components.njk](https://github.com/MWDelaney/11ty-component-system/blob/main/src/assets/views/partials/components.njk) and place it in your [includes directory](https://www.11ty.dev/docs/config/#directory-for-includes) (default: `_includes/`).
+3. Create a directory in your project for single-file components. For example, `src/components/`.
+4. (Optional) Copy the [admin directory](https://github.com/MWDelaney/11ty-component-system/tree/main/src/content/admin) to your project to use DecapCMS to create pages with your components.

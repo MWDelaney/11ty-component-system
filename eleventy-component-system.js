@@ -19,33 +19,36 @@ import { EleventyRenderPlugin } from "@11ty/eleventy";
  * - CSS: Bundles CSS files into the `./assets/styles/` directory.
  * - JS: Bundles JavaScript files into the `./assets/scripts/` directory.
  */
-export default function(eleventyConfig) {
 
+// Change the following constants to match your project structure
+const COMPONENTS_DIR = "src/assets/components/*.njk"; // The directory you'll store your single-file components.
+const CSS_BUNDLE_DIR = "./assets/styles/"; // The directory where the CSS bundle will be saved.
+const JS_BUNDLE_DIR = "./assets/scripts/"; // The directory where the JS bundle will be saved.
+const STYLESHEET_FILE = "src/stylesheet.njk"; // Component stylesheet template (optional)
+
+export default function(eleventyConfig) {
   /**
    * Add the Eleventy Render Plugin.
    * Check if the plugin is already enabled before enabling it.
    */
-    if (!eleventyConfig.plugins || !eleventyConfig.plugins.includes(EleventyRenderPlugin)) {
-      eleventyConfig.addPlugin(EleventyRenderPlugin);
-    }
+  if (!eleventyConfig.plugins || !eleventyConfig.plugins.includes(EleventyRenderPlugin)) {
+    eleventyConfig.addPlugin(EleventyRenderPlugin);
+  }
 
   /**
-   * Exclude components and stylesheet from production buildes
-   * Update the paths to match your project structure, and the condition to
-   * match your build process.
+   * Exclude components and stylesheet from production builds
    */
   if (process.env.ELEVENTY_ENV === "production") {
-      eleventyConfig.ignores.add("src/assets/components/*.njk");
-      eleventyConfig.ignores.add("src/stylesheet.njk");
+    eleventyConfig.ignores.add(COMPONENTS_DIR);
+    eleventyConfig.ignores.add(STYLESHEET_FILE);
   }
 
   /**
    * Components Collection
-   * This collection includes all components from the `src/assets/components/*.njk` directory.
-   * Change this path to match your project structure.
+   * This collection includes all components from the `COMPONENTS_DIR` directory.
    */
   eleventyConfig.addCollection("components", function(collectionApi) {
-    return collectionApi.getFilteredByGlob("src/assets/components/*.njk");
+    return collectionApi.getFilteredByGlob(COMPONENTS_DIR);
   });
 
   /**
@@ -68,10 +71,10 @@ export default function(eleventyConfig) {
    *   <script src="{% getBundleFileUrl "js" %}"></script>
    */
   eleventyConfig.addBundle("css", {
-    toFileDirectory: "./assets/styles/",
+    toFileDirectory: CSS_BUNDLE_DIR,
   });
 
   eleventyConfig.addBundle("js", {
-    toFileDirectory: "./assets/scripts/",
+    toFileDirectory: JS_BUNDLE_DIR,
   });
 }
