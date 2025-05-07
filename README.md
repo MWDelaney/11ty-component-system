@@ -52,7 +52,7 @@ components:
 {%- include "partials/components.njk" -%}
 ```
 
-The [components.njk partial](https://github.com/MWDelaney/11ty-component-system/blob/main/src/assets/views/partials/components.njk) will automatically render components using data in the `components` frontmatter key.
+The [components.njk partial](https://github.com/MWDelaney/11ty-component-system/blob/main/src/assets/views/partials/components.njk) will automatically render components using data in the `components` frontmatter key, and markup from the component.
 
 Optionally [generate a DecapCMS configuration file](https://github.com/MWDelaney/11ty-component-system/blob/main/src/content/admin/config.yml.njk) and start building pages with components right away!
 
