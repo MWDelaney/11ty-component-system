@@ -6,7 +6,7 @@ This is an example of a simple Eleventy component system. It is designed to be a
 
 ## A single-file format for 11ty front-end components
 
-The Eleventy Component System is a universal format for building reusable components in Eleventy. It allows you to define your component's data model, markup, and styles in a single file, making it easy to create and manage front-end components
+The Eleventy Component System is a single-file format for building reusable components in Eleventy. It allows you to define your component's data model, markup, and styles in a single file and use them in your pages by populating them with frontmatter.
 
 Here's an example of a simple "Article" component:
 
