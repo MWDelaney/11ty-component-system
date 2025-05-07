@@ -4,7 +4,7 @@ Build resuable single-file components for Eleventy sites. Data model and markup 
 
 This is an example of a simple Eleventy component system. It is designed to be a starting point for building reusable components in Eleventy. It's not intended to be a complete solution, but rather an example to help you get started.
 
-## A universal format for 11ty front-end components
+## A single-file format for 11ty front-end components
 
 The Eleventy Component System is a universal format for building reusable components in Eleventy. It allows you to define your component's data model, markup, and styles in a single file, making it easy to create and manage front-end components
 
