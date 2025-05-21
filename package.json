@@ -23,7 +23,7 @@
     "last 2 versions"
   ],
   "devDependencies": {
-    "@11ty/eleventy": "^3.0.0",
+    "@11ty/eleventy": "^3.1.0",
     "@11ty/eleventy-img": "^6.0.2",
     "@popperjs/core": "^2.11.8",
     "autoprefixer": "^10.3.1",

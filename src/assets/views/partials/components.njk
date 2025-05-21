@@ -4,10 +4,10 @@
   {% for component in collections.components -%}
     {# Check if the component's title matches the item's type #}
     {%- if component.data.title | slugify == item.type | slugify -%}
-        {# Append the component's nunjucks-formatted content (rawInput) to the item object #}
-        {% set updatedItem = item | merge({ templateContent: component.rawInput }) %}
-        {# Render the component with the updated item data #}
-        {{- updatedItem.templateContent | renderContent("njk", updatedItem) | safe -}}
+      {# Append the component's nunjucks-formatted content (rawInput) to the item object #}
+      {% set updatedItem = item | merge({ templateContent: component.rawInput }) %}
+      {# Render the component with the updated item data #}
+      {{- updatedItem.templateContent | renderContent("njk", updatedItem) | safe -}}
     {%- endif -%}
   {%- endfor -%}
 {%- endfor -%}
