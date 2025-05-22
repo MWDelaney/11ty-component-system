@@ -1,4 +1,4 @@
-const siteName = "11ty-meetup-project";
+const siteName = "11ty-component-system";
 
 /**
  * Wait! Before you edit this file!
