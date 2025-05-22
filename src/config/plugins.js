@@ -6,7 +6,7 @@
 import metagenPlugin from 'eleventy-plugin-metagen';
 import { eleventyImageTransformPlugin } from "@11ty/eleventy-img";
 import { EleventyRenderPlugin } from "@11ty/eleventy";
-import componentSystem from '../../eleventy-component-system.js';
+import componentSystem from './component-system.js';
 
 export default {
   /**
