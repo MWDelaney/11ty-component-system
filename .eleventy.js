@@ -1,4 +1,4 @@
-const siteName = "11ty-component-system";
+const siteName = "ZeroPoint";
 
 /**
  * Wait! Before you edit this file!
@@ -30,6 +30,11 @@ import collections from './src/config/collections.js';
 import watchtargets from './src/config/watchtargets.js';
 
 /**
+ * Plugins are defined as named exports in /src/config/plugins.js
+ */
+import plugins from './src/config/plugins.js';
+
+/**
  * Shortcodes are defined as named exports in /src/config/shortcodes.js
  */
 import shortcodes from './src/config/shortcodes.js';
@@ -55,11 +60,6 @@ import build from './src/config/build.js';
 import transforms from './src/config/transforms.js';
 
 /**
- * Plugins are defined as named exports in /src/config/plugins.js
- */
-import plugins from './src/config/plugins.js';
-
-/**
  * Any additional requirements can be added here
  */
 import chalk from 'chalk';
@@ -69,6 +69,7 @@ import chalk from 'chalk';
  * https://www.11ty.dev/docs/config/
  */
 export default function(eleventyConfig) {
+
   // An array of the tasks to be run, in order, with an icon and a pretty name for each
   // Put the tasks in the order you want them to run, and set echo to false if you don't want to log the task to the console
   let tasks = [
@@ -76,6 +77,12 @@ export default function(eleventyConfig) {
       icon: "📚",
       name: "Collections",
       config: collections,
+      echo: true,
+    },
+    {
+      icon: "🔌",
+      name: "Plugins",
+      config: plugins,
       echo: true,
     },
     {
@@ -113,13 +120,7 @@ export default function(eleventyConfig) {
       name: "Watch Targets",
       config: watchtargets,
       echo: false,
-    },
-    {
-      icon: "🔌",
-      name: "Plugins",
-      config: plugins,
-      echo: true,
-    },
+    }
   ];
 
   /**
