@@ -52,14 +52,6 @@ export default function(eleventyConfig) {
   });
 
   /**
-   * Merge filter
-   * This filter merges two objects into a single object.
-   */
-  eleventyConfig.addFilter("merge", function (a, b) {
-    return { ...a, ...b };
-  });
-
-  /**
    * Add handy bundles for CSS and JS
    * Change the `toFileDirectory` to match your project structure.
    *
@@ -77,4 +69,9 @@ export default function(eleventyConfig) {
   eleventyConfig.addBundle("js", {
     toFileDirectory: JS_BUNDLE_DIR,
   });
+
+  /**
+   * Add a shortcode for the components system
+   */
+
 }
