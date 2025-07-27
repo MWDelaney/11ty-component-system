@@ -1,9 +1,16 @@
 ---
 title: "Point One: Reusable components for Eleventy"
 permalink: /
+mainSection:
+  - type: text
+    body: |
+      This site is built with reusable components, which are defined in the `src/content/components` directory.
+      Each component can be used across different pages, allowing for a consistent design and easy updates.
+      <hr>
+      <img src="/assets/images/favicon.svg" alt="ZeroPoint logo">
+
 ---
 <section class="container">
-This site's content is built from single-file components.
-<hr>
-<img src="/assets/images/favicon.svg" alt="ZeroPoint logo">
+{% set components = mainSection %}
+{% include "partials/components.njk"  %}
 </section>

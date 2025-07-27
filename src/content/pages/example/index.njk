@@ -1,7 +1,7 @@
 ---
 title: Example
 permalink: /example/
-components:
+mainSection:
   - type: callout
     heading: Callout heading from frontmatter
     description: Callout description from frontmatter
@@ -13,3 +13,6 @@ components:
     imageAlt: A cute possum
     background: primary
 ---
+
+{% set components = mainSection %}
+{% include "partials/components.njk"  %}
