@@ -5,7 +5,7 @@ permalink: /stylesheet/
 ---
 {% for item in collections.components | sort(attribute="data.title") %}
   {% if item.data.title %}
-  <section class="stylesheet-component container">
+  <section class="stylesheet-component container mb-5 pb-5 border-bottom">
     {# Show the title of the component #}
     <header class="d-flex border-bottom">
       <h2 id="{{ item.data.title | slugify }}">
@@ -17,8 +17,22 @@ permalink: /stylesheet/
       </nav>
     </header>
     {# Show the content of the component #}
-    <div class="stylesheet-block-content">
-      {{- item.rawInput | renderContent("njk", item.data) | safe -}}
+    <div class="stylesheet-block-content mt-3">
+      <nav class="nav nav-tabs" role="tablist">
+        <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#{{ item.data.title | slugify }}Rendered" type="button" role="tab" aria-selected="true">Rendered</button>
+        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#{{ item.data.title | slugify }}Source" type="button" role="tab" aria-selected="false">Source (njk)</button>
+      </nav>
+      <div class="tab-content">
+        <div class="tab-pane fade show active" id="{{ item.data.title | slugify }}Rendered">
+          {{- item.rawInput | renderContent("njk", item.data) | safe -}}
+        </div>
+        <div class="tab-pane fade" id="{{ item.data.title | slugify }}Source">
+          <pre><code>
+            {{- item | getFrontmatter | safe -}}
+            {{- item.rawInput -}}
+          </code></pre>
+        </div>
+      </div>
     </div>
   </section>
   {% endif %}

@@ -5,7 +5,6 @@
 
 import metagenPlugin from 'eleventy-plugin-metagen';
 import { eleventyImageTransformPlugin } from "@11ty/eleventy-img";
-import { EleventyRenderPlugin } from "@11ty/eleventy";
 import componentSystem from './component-system.js';
 
 export default {
@@ -17,15 +16,6 @@ export default {
     // Add plugin to eleventyConfig
     eleventyConfig.addPlugin(metagenPlugin);
   },
-
-  /**
-   * Eleventy Render plugin
-   * https://www.11ty.dev/docs/plugins/render/
-   */
-    render: async function (eleventyConfig) {
-      // Add plugin to eleventyConfig
-      eleventyConfig.addPlugin(EleventyRenderPlugin);
-    },
 
   /**
    * Eleventy Image Transform plugin
