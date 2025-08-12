@@ -10,7 +10,10 @@
     {# Stylesheet #}
     <link rel="stylesheet" href="{{ '/assets/styles/styles.css' | url }}"/>
     <link rel="stylesheet" href="{% getBundleFileUrl "css" %}">
-
+		<link
+			href="https://unpkg.com/prism-themes/themes/prism-synthwave84.css"
+			rel="stylesheet"
+		/>
     {# Favicon #}
     <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.svg">
 
@@ -47,7 +50,6 @@
 
     {# Script bundle #}
     <script src="{{ '/assets/scripts/main.js' | url }}"></script>
-    <script src="{% getBundleFileUrl "js" %}">
-
+    <script src="{% getBundleFileUrl "js" %}"></script>
   </body>
 </html>

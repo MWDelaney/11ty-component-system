@@ -5,6 +5,7 @@
 
 import metagenPlugin from 'eleventy-plugin-metagen';
 import { eleventyImageTransformPlugin } from "@11ty/eleventy-img";
+import syntaxHighlight from "@11ty/eleventy-plugin-syntaxhighlight";
 import componentSystem from './component-system.js';
 
 export default {
@@ -15,6 +16,15 @@ export default {
   metagen: async function (eleventyConfig) {
     // Add plugin to eleventyConfig
     eleventyConfig.addPlugin(metagenPlugin);
+  },
+
+  /**
+   * Syntax Highlight plugin
+   * https://www.11ty.dev/docs/plugins/syntaxhighlight/
+   */
+  syntaxHighlight: async function (eleventyConfig) {
+    // Add plugin to eleventyConfig
+    eleventyConfig.addPlugin(syntaxHighlight);
   },
 
   /**

@@ -11,26 +11,30 @@ permalink: /stylesheet/
       <h2 id="{{ item.data.title | slugify }}">
         {{ item.data.title | safe }}
       </h2>
-      <nav class="nav nav-pills">
-        <a href="/stylesheet/{{ item.data.title | slugify }}/" class="nav-link">View component</a>
-        <a href="#top" class="nav-link">Back to top</a>
-      </nav>
     </header>
     {# Show the content of the component #}
     <div class="stylesheet-block-content mt-3">
+      <div class="d-flex">
       <nav class="nav nav-tabs" role="tablist">
         <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#{{ item.data.title | slugify }}Rendered" type="button" role="tab" aria-selected="true">Rendered</button>
         <button class="nav-link" data-bs-toggle="tab" data-bs-target="#{{ item.data.title | slugify }}Source" type="button" role="tab" aria-selected="false">Source (njk)</button>
       </nav>
+      <nav class="nav nav-pills me-0 ms-auto">
+        <a href="/stylesheet/{{ item.data.title | slugify }}/" class="nav-link">View component</a>
+        <a href="#top" class="nav-link">Back to top</a>
+      </nav>
+      </div>
       <div class="tab-content">
         <div class="tab-pane fade show active" id="{{ item.data.title | slugify }}Rendered">
           {{- item.rawInput | renderContent("njk", item.data) | safe -}}
         </div>
-        <div class="tab-pane fade" id="{{ item.data.title | slugify }}Source">
-          <pre><code>
+        <div class="tab-pane fade shadow" id="{{ item.data.title | slugify }}Source">
+            {% highlight "yml" %}
             {{- item | getFrontmatter | safe -}}
-            {{- item.rawInput -}}
-          </code></pre>
+            {% endhighlight %}
+            {% highlight "html" %}
+            {{- item.rawInput | safe -}}
+            {% endhighlight %}
         </div>
       </div>
     </div>
