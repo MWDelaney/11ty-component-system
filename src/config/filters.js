@@ -17,5 +17,5 @@ export default {
     eleventyConfig.addFilter("markdown", function (value) {
       return markdownLib.render(value);
     });
-  },
+  }
 }

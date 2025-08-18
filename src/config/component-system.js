@@ -45,6 +45,7 @@ const defaultOptions = {
 export default function(eleventyConfig, userOptions = {}) {
   // Merge user options with defaults
   const options = { ...defaultOptions, ...userOptions };
+
   /**
    * Add the Eleventy Render Plugin.
    * Check if the plugin is already enabled before enabling it.
@@ -117,6 +118,35 @@ export default function(eleventyConfig, userOptions = {}) {
       return `Error reading file: ${error.message}`;
     }
   });
+
+  // Render components filter - returns matched component templates
+  eleventyConfig.addFilter("renderComponent", function (item) {
+    if (!item || !item.type) {
+      return '';
+    }
+
+    const collections = this.ctx.collections || this.collections;
+    if (!collections || !collections.components) {
+      return '';
+    }
+
+    const slugifyFilter = eleventyConfig.getFilter("slugify");
+
+    // Find the matching component in the collections
+    for (const component of collections.components) {
+      if (component.data && component.data.title) {
+        const componentSlug = slugifyFilter(component.data.title);
+        const itemSlug = slugifyFilter(item.type);
+
+        if (componentSlug === itemSlug) {
+          // Return the component's rawInput - template will handle rendering with item data
+          return component.rawInput;
+        }
+      }
+    }
+
+    return '';
+  })
 
   /**
    * Add a shortcode for the components system

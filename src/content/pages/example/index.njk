@@ -14,5 +14,6 @@ mainSection:
     background: primary
 ---
 
-{% set components = mainSection %}
-{% include "partials/components.njk"  %}
+{%- for item in mainSection -%}
+  {{- item | renderComponent | renderContent("njk", item) | safe -}}
+{%- endfor -%}
