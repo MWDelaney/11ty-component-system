@@ -9,9 +9,9 @@
 
     {# Stylesheet #}
     <link rel="stylesheet" href="{{ '/assets/styles/styles.css' | url }}"/>
-    <link rel="stylesheet" href="{% getBundleFileUrl "css" %}">
+    <link rel="stylesheet" href="{% getBundleFileUrl "componentCss" %}">
 		<link
-			href="https://unpkg.com/prism-themes/themes/prism-synthwave84.css"
+			href="https://unpkg.com/prism-themes/themes/prism-material-light.css"
 			rel="stylesheet"
 		/>
     {# Favicon #}
@@ -50,6 +50,6 @@
 
     {# Script bundle #}
     <script src="{{ '/assets/scripts/main.js' | url }}"></script>
-    <script src="{% getBundleFileUrl "js" %}"></script>
+    <script src="{% getBundleFileUrl "componentJs" %}"></script>
   </body>
 </html>

@@ -11,7 +11,5 @@ mainSection:
 
 ---
 <section class="container">
-{%- for item in mainSection -%}
-  {{- item | renderComponent | renderContent("njk", item) | safe -}}
-{%- endfor -%}
+  {{- mainSection | renderComponent("njk") | safe -}}
 </section>

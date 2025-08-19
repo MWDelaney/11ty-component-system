@@ -5,7 +5,6 @@ mainSection:
   - type: callout
     heading: Callout heading from frontmatter
     description: Callout description from frontmatter
-    background: light
   - type: text-and-image
     heading: Text and Image heading from frontmatter
     description: Text and Image description from frontmatter
@@ -14,6 +13,4 @@ mainSection:
     background: primary
 ---
 
-{%- for item in mainSection -%}
-  {{- item | renderComponent | renderContent("njk", item) | safe -}}
-{%- endfor -%}
+{{- mainSection | renderComponent("njk") | safe -}}

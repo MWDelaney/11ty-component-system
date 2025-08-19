@@ -6,7 +6,7 @@
 import metagenPlugin from 'eleventy-plugin-metagen';
 import { eleventyImageTransformPlugin } from "@11ty/eleventy-img";
 import syntaxHighlight from "@11ty/eleventy-plugin-syntaxhighlight";
-import componentSystem from './component-system.js';
+import componentSystem from "eleventy-plugin-reusable-components";
 
 export default {
   /**
@@ -51,6 +51,8 @@ export default {
    */
   componentSystem: async function (eleventyConfig) {
     // Add plugin to eleventyConfig
-    eleventyConfig.addPlugin(componentSystem);
+    eleventyConfig.addPlugin(componentSystem, {
+      componentsDir: "src/assets/components/*.njk",
+    });
   }
 }
