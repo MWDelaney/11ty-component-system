@@ -47,6 +47,10 @@
 
         {% endfor %}
       </ul>
+      <nav class="nav nav-tabs me-0 ms-auto" role="tablist">
+        <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#{{ page.data.title | slugify }}Rendered" type="button" role="tab" aria-selected="true">Rendered</button>
+        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#{{ page.data.title | slugify }}Source" type="button" role="tab" aria-selected="false">Source (njk)</button>
+      </nav>
     </div>
   </div>
 </nav>

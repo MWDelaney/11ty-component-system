@@ -1,12 +1,6 @@
 ---
 layout: base.njk
 ---
-<div class="container">
-  <nav class="nav nav-tabs" role="tablist">
-    <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#{{ page.data.title | slugify }}Rendered" type="button" role="tab" aria-selected="true">Rendered</button>
-    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#{{ page.data.title | slugify }}Source" type="button" role="tab" aria-selected="false">Source (njk)</button>
-  </nav>
-</div>
 <div class="tab-content">
   <div class="tab-pane fade show active" id="{{ page.data.title | slugify }}Rendered">
     <header class="container mb-5" id="page-header">

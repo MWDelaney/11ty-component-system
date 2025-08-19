@@ -10,34 +10,6 @@ links:
   - linkUrl: #
     linkText: Learn more about 11ty Meetup!
 background: light
-
-#CMS Fields
-fields:
-  - name: heading
-    label: Heading
-    widget: string
-  - name: description
-    label: Description
-    widget: markdown
-  - name: links
-    label: Links
-    widget: list
-    listItemLabel: Link
-    fields:
-      - name: linkUrl
-        label: Link URL
-        widget: string
-      - name: linkText
-        label: Link Text
-        widget: string
-  - name: background
-    label: Background Color
-    widget: select
-    options:
-      - { label: "Light", value: "light" }
-      - { label: "Dark", value: "dark" }
-      - { label: "Primary", value: "primary" }
-      - { label: "Secondary", value: "secondary" }
 ---
 
 <section class="block block-callout bg-{{ background }} text-bg-{{ background }} py-5">
