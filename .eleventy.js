@@ -181,6 +181,17 @@ export default function(eleventyConfig) {
    */
   build(eleventyConfig);
 
+  /**
+   * Add componentJs and componentCss bundles
+   */
+  eleventyConfig.addBundle("componentCss", {
+    toFileDirectory: "public/assets/css",
+  });
+
+  eleventyConfig.addBundle("componentJs", {
+    toFileDirectory: "public/assets/js",
+  });
+
 
   /**
   * Configure dev server
